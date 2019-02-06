@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试我的blog</title>
+</head>
+<body>
+
+<!-- 法1 -->
+<!-- {{ article_content | safe }} -->
+
+<!-- 法2 -->
+
+<!-- {% autoescape off %}
+{{blog.content }}
+{% endautoescape %} -->
+
+<div style="border:10px solid #999;padding:5px;">
+
+{% if title %}
+	{% for title in title %}
+		<h3>标题： {{ title.name }}</h3>
+		<br/>
+	{% endfor %}
+
+	{% for desc in desc %}
+		<p>摘要： {{ desc.desc }}</p>
+		<br/>
+	{% endfor %}
+
+	{% for detail in detail %}
+		<p>博文正文:</p>
+		<br/>
+		<p>{{ detail.detail | safe }}</p>
+		<br/>
+	{% endfor %}
+{% else %}
+	<h1>当前没有博文</h1>
+{% endif %}
+
+</div>
+
+</body>
+</html>
